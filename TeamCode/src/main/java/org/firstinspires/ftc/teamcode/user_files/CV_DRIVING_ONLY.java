@@ -112,21 +112,6 @@ public class CV_DRIVING_ONLY extends LinearOpMode {
 
             move();
 
-/*
-            if(gamepad1.left_stick_button && !rishi)
-            {
-                if (powersetterr == 1.0)
-                {
-                    powersetterr = 0.5;
-                }
-                else
-                {
-                    powersetterr = 1.0;
-                }
-
-            }
-            rishi = gamepad1.left_stick_button;
-*/
 
 
 
@@ -145,24 +130,14 @@ public class CV_DRIVING_ONLY extends LinearOpMode {
 
 
 
-
-
-
-    // void grab(){
-    //}
-    //void ungrab(){
-    //}
-
-
     void move(){
-        double horizontal = -gamepad1.left_stick_x*.5;   // this works so dont question it
+        double horizontal = gamepad1.left_stick_x*.5;   // this works so dont question it
         double vertical = gamepad1.left_stick_y*.5;
-        double turn = -gamepad1.right_stick_x*2/3;
-        //  E.setPower(gamepad1.left_stick_y);
-        fl.setPower((Range.clip((vertical + horizontal + turn), -1, 1))/**powersetterr*/);
-        fr.setPower((Range.clip((vertical - horizontal - turn), -1, 1))/**powersetterr*/);
-        bl.setPower((Range.clip((vertical - horizontal + turn), -1, 1))/**powersetterr*/);
-        br.setPower((Range.clip((vertical + horizontal - turn), -1, 1))/**powersetterr*/);
+        double turn = gamepad1.right_stick_x*2/3;
+        fl.setPower((Range.clip((vertical - horizontal + turn), -1, 1))/**powersetterr*/);
+        fr.setPower((Range.clip((vertical + horizontal - turn), -1, 1))/**powersetterr*/);
+        bl.setPower((Range.clip((vertical + horizontal + turn), -1, 1))/**powersetterr*/);
+        br.setPower((Range.clip((vertical - horizontal - turn), -1, 1))/**powersetterr*/);
     }
 
 
